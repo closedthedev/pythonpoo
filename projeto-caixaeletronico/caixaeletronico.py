@@ -34,7 +34,7 @@ class CaixaEletronico():
         else: print('Valor incorreto!')
 
     def ver_saldo(self):
-        print(f'O seu saldo disponível é de: {self.saldo}')
+        print(f'O seu saldo atual é de: {self.saldo}')
 
 def voltar_menu():
         input('Digite qualquer tecla para voltar ao menu principal!\n ')
@@ -46,23 +46,30 @@ def exibir_opções():
     print('\n[1] para ver saldo')
     print('[2] para depositar')
     print('[3] para sacar')
+    print('[0] para sair')
 def exibir_escolhas():
-    escolha_usuário = int(input('\nDigite o número referente a operação que deseja realizar: '))
 
-    if escolha_usuário == 1:
-        caixa.ver_saldo()
-        voltar_menu()
+    while True:
 
-    elif escolha_usuário ==2:
-        caixa.depositar()
-        caixa.ver_saldo()
-        voltar_menu()
+        escolha_usuário = int(input('\nDigite o número referente a operação que deseja realizar: '))
 
-    elif escolha_usuário ==3:
-        caixa.sacar()
-        caixa.ver_saldo()
-        voltar_menu()
+        if escolha_usuário == 1:
+            caixa.ver_saldo()
+            voltar_menu()
 
+        elif escolha_usuário ==2:
+            caixa.depositar()
+            caixa.ver_saldo()
+            voltar_menu()
+
+        elif escolha_usuário ==3:
+            caixa.sacar()
+            caixa.ver_saldo()
+            voltar_menu()
+
+        elif escolha_usuário == 0:
+            print('Finalizando...')
+            break
 
 
 
