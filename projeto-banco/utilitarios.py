@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import random
 
 @dataclass
 class Cliente:
@@ -6,30 +7,21 @@ class Cliente:
     cpf: str
     email: str
 @dataclass
-class ContaBancaria():
+class ContaBancaria:
     cliente: Cliente
     numero_conta: str
-    saldo: int = 0
+    saldo: float = 0.0
 
     def exibir_nome_cliente(self):
-        return self.cliente.nome
+        return self.nome
     
     
     def exibir_email_cliente(self):
-        return self.cliente.email
+        return self.email
     
     def exibir_cpf_cliente(self):
-        return self.cliente.cpf
+        return self.cpf
     
-    def saldo_inicial(self):
-        while True:
-            try:
-                saldo_inicial = int(input('Digite seu saldo inicial: R$'))
-                if saldo_inicial > 0:
-                    self.saldo = saldo_inicial
-                    break
-            except ValueError:
-                 print("Erro: Por favor, insira um valor numérico válido.\n")
 
     def depositar(self):
         while True:
@@ -62,11 +54,12 @@ class ContaBancaria():
 
 
 def clientes_informacoes():
+    saldo_inicial = random.randint(500,5000) 
     cliente1 = Cliente(nome='Luiz Otavio', cpf='15323512394', email='closedthedev@gmail.com')
     cliente2 = Cliente(nome='Rafaela', cpf='17263518393', email='rafaelathedev@gmail.com')
 
-    conta_cliente1 = ContaBancaria(cliente=cliente1, numero_conta='962937')
-    conta_cliente2 = ContaBancaria(cliente=cliente2, numero_conta='178352')
+    conta_cliente1 = ContaBancaria(cliente=cliente1, numero_conta='962937', saldo=saldo_inicial )
+    conta_cliente2 = ContaBancaria(cliente=cliente2, numero_conta='178352', saldo=saldo_inicial)
 
     # Retorna as instâncias dos clientes
     return cliente1, cliente2, conta_cliente1, conta_cliente2
