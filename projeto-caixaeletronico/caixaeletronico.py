@@ -9,32 +9,35 @@ class CaixaEletronico():
     
 
     def depositar(self):
-
-        valor = int(input('Quanto você quer depositar? '))
-
-        if valor > 0:
-            self.saldo += valor
-            print(f'Depósito concluído com sucesso. ')
-
-        else:
-            print('Valor de depósito inválido!')
+        while True:
+            try:
+                valor = int(input('Quanto você quer depositar? R$'))
+                if valor > 0:
+                    self.saldo += valor
+                    print(f'Depósito concluído com sucesso. Novo saldo: R${self.saldo}')
+                    break  # Saia do loop somente se o depósito for bem-sucedido
+                else:
+                    print('Valor de depósito inválido! Por favor, insira um valor positivo.')
+            except ValueError:
+                 print("Erro: Por favor, insira um valor numérico válido.\n")
 
     def sacar(self):
-
-        valor = int(input('Quanto você quer sacar? '))
-
-        if valor > 0 and valor <= self.saldo:
-
-            self.saldo -= valor
-            print('Saque realizado com sucesso.')
-
-        elif valor > self.saldo:
-            print('Saldo insuficiente.') 
-
-        else: print('Valor incorreto!')
+        while True:
+            try:
+                valor = int(input('Quanto você quer sacar? R$'))
+                if valor > 0 and valor <= self.saldo:
+                    self.saldo -= valor
+                    print(f'Saque realizado com sucesso. Novo saldo: R${self.saldo}')
+                    break
+                elif valor > self.saldo:
+                    print('Saldo insuficiente. Por favor, insira um valor menor.')
+                else:
+                    print('Valor incorreto! Por favor, insira um valor positivo.')
+            except ValueError:
+                print("Erro: Por favor, insira um valor numérico válido.")
 
     def ver_saldo(self):
-        print(f'O seu saldo atual é de: {self.saldo}')
+        print(f'O seu saldo atual é de: R${self.saldo}')
 
 def voltar_menu():
         input('Digite qualquer tecla para voltar ao menu principal!\n ')
@@ -59,12 +62,10 @@ def exibir_escolhas():
 
         elif escolha_usuário ==2:
             caixa.depositar()
-            caixa.ver_saldo()
             voltar_menu()
 
         elif escolha_usuário ==3:
             caixa.sacar()
-            caixa.ver_saldo()
             voltar_menu()
 
         elif escolha_usuário == 0:
