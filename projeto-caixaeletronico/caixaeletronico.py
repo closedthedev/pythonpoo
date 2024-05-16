@@ -50,28 +50,27 @@ def exibir_opções():
     print('[2] para depositar')
     print('[3] para sacar')
     print('[0] para sair')
+    
 def exibir_escolhas():
-
     while True:
-
-        escolha_usuário = int(input('\nDigite o número referente a operação que deseja realizar: '))
-
-        if escolha_usuário == 1:
-            caixa.ver_saldo()
-            voltar_menu()
-
-        elif escolha_usuário ==2:
-            caixa.depositar()
-            voltar_menu()
-
-        elif escolha_usuário ==3:
-            caixa.sacar()
-            voltar_menu()
-
-        elif escolha_usuário == 0:
-            print('Finalizando...')
-            break
-
+        try:
+            escolha_usuario = int(input('\nDigite o número referente à operação que deseja realizar: '))
+            if escolha_usuario == 1:
+                caixa.ver_saldo()
+                voltar_menu()
+            elif escolha_usuario == 2:
+                caixa.depositar()
+                voltar_menu()
+            elif escolha_usuario == 3:
+                caixa.sacar()
+                voltar_menu()
+            elif escolha_usuario == 0:
+                print('Finalizando...')
+                break
+            else:
+                print('Opção inválida. Tente novamente.')
+        except ValueError:
+            print('Entrada inválida! Por favor, insira um número.')
 
 
 def main():
