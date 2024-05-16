@@ -9,16 +9,18 @@ def tela_inicial():
     print('Olá, seja bem-vindo ao CLOSED BANKING. Para entrar em sua conta, digite seu CPF e o número da conta!\n')
 
 def login_banco():
-        cpf = input('Digite o seu CPF: ').strip()
-        num_conta = input('Digite o número da sua conta bancária: ').strip()
+        cpf = input('Digite o CPF do titular da conta: ').strip()
+        num_conta = input('Digite o número da conta bancária: ').strip()
 
-        cliente1, cliente2 = clientes_informacoes()
+        cliente1, cliente2, conta_cliente1, conta_cliente2 = clientes_informacoes()
         while True:
             if cpf == '15323512394' and num_conta == '962937':
                 print(f'Olá, {cliente1.nome}. Seja bem-vindo!')
+                conta_cliente1.saldo_inicial()
                 break
             elif cpf == '17263518393' and num_conta == '178352':
                 print(f'Olá, {cliente2.nome}. Seja bem-vinda!')
+                conta_cliente2.saldo_inicial()
                 break
             else:
                 print("CPF ou número da conta inválido.")

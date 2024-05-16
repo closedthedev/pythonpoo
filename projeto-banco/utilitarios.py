@@ -6,7 +6,7 @@ class Cliente:
     cpf: str
     email: str
 @dataclass
-class ContaBancaria:
+class ContaBancaria():
     cliente: Cliente
     numero_conta: str
     saldo: int = 0
@@ -38,7 +38,7 @@ class ContaBancaria:
                 if valor > 0:
                     self.saldo += valor
                     print(f'Depósito concluído com sucesso. Novo saldo: R${self.saldo}')
-                    break  # Saia do loop somente se o depósito for bem-sucedido
+                    break  
                 else:
                     print('Valor de depósito inválido! Por favor, insira um valor positivo.')
             except ValueError:
@@ -65,12 +65,12 @@ def clientes_informacoes():
     cliente1 = Cliente(nome='Luiz Otavio', cpf='15323512394', email='closedthedev@gmail.com')
     cliente2 = Cliente(nome='Rafaela', cpf='17263518393', email='rafaelathedev@gmail.com')
 
-    conta1 = ContaBancaria(cliente=cliente1, numero_conta='962937')
-    conta2 = ContaBancaria(cliente=cliente2, numero_conta='178352')
+    conta_cliente1 = ContaBancaria(cliente=cliente1, numero_conta='962937')
+    conta_cliente2 = ContaBancaria(cliente=cliente2, numero_conta='178352')
 
     # Retorna as instâncias dos clientes
-    return cliente1, cliente2
+    return cliente1, cliente2, conta_cliente1, conta_cliente2
 
 # Chamando a função para criar as instâncias
-cliente1, cliente2 = clientes_informacoes()
+cliente1, cliente2, conta_cliente1, conta_cliente2 = clientes_informacoes()
 
