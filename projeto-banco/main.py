@@ -1,7 +1,7 @@
 import os
 from utilitarios import Cliente, ContaBancaria, clientes_informacoes
 
-cliente1, cliente2, conta_cliente1, conta_cliente2 = clientes_informacoes()
+cliente1, cliente2, cliente3, cliente4, cliente5, conta_cliente1, conta_cliente2 = clientes_informacoes()
 
 def tela_inicial():
     print('''
@@ -80,6 +80,39 @@ def cliente2_condicional():
                 voltar_menu()
             elif escolha_usuario == 2:
                 conta_cliente2.depositar()
+                voltar_menu()
+            elif escolha_usuario == 3:
+                conta_cliente2.sacar()
+                voltar_menu()
+            elif escolha_usuario == 4:
+                os.system('cls')
+                login_banco()
+            elif escolha_usuario == 5:
+                print('Finalizando...')
+                break
+            else:
+                print('Opção inválida. Tente novamente.')
+        except ValueError:
+            print('Entrada inválida! Por favor, insira um número.')
+
+def cliente3_condicional():
+     
+    print(f'Olá, {cliente3.nome}! Que operação deseja realizar hoje? \n')
+    print('\n[1] para ver saldo')
+    print('[2] para depositar')
+    print('[3] para sacar')
+    print('[4] para trocar de conta')
+    print('[5] para sair')
+
+    while True:
+        try:
+            escolha_usuario = int(input('\nDigite o número referente à operação que deseja realizar: '))
+            if escolha_usuario == 1:
+                print(f'O seu saldo é de R${conta_cliente3.saldo}')
+            
+                voltar_menu()
+            elif escolha_usuario == 2:
+                conta_cliente3.depositar()
                 voltar_menu()
             elif escolha_usuario == 3:
                 conta_cliente2.sacar()
