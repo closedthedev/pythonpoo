@@ -61,15 +61,15 @@ def clientes_informacoes():
     cliente4 = Cliente(nome='Raquel', cpf='98372819474', email='raquelthedev@gmail.com')
     cliente5 = Cliente(nome='Márcio', cpf='19898371283', email='marciothedev@gmail.com')
 
-    conta_cliente1 = ContaBancaria(cliente=cliente1, numero_conta='962937', saldo=saldo_inicial )
+    conta_cliente1 = ContaBancaria(cliente=cliente1, numero_conta='962937', saldo=saldo_inicial)
     conta_cliente2 = ContaBancaria(cliente=cliente2, numero_conta='178352', saldo=saldo_inicial)
-    conta_cliente2 = ContaBancaria(cliente=cliente3, numero_conta='837182', saldo=saldo_inicial)
-    conta_cliente2 = ContaBancaria(cliente=cliente4, numero_conta='563801', saldo=saldo_inicial)
-    conta_cliente2 = ContaBancaria(cliente=cliente5, numero_conta='273102', saldo=saldo_inicial)
+    conta_cliente3 = ContaBancaria(cliente=cliente3, numero_conta='837182', saldo=saldo_inicial)
+    conta_cliente4 = ContaBancaria(cliente=cliente4, numero_conta='563801', saldo=saldo_inicial)
+    conta_cliente5 = ContaBancaria(cliente=cliente5, numero_conta='273102', saldo=saldo_inicial)
 
     # Retorna as instâncias dos clientes
-    return cliente1, cliente2, cliente3, cliente4, cliente5, conta_cliente1, conta_cliente2
+    return cliente1, cliente2, cliente3, cliente4, cliente5, conta_cliente1, conta_cliente2, conta_cliente3, conta_cliente4, conta_cliente5
 
 # Chamando a função para criar as instâncias
-cliente1, cliente2, cliente3, cliente4, cliente5, conta_cliente1, conta_cliente2 = clientes_informacoes()
+cliente1, cliente2, cliente3, cliente4, cliente5, conta_cliente1, conta_cliente2, conta_cliente3, conta_cliente4, conta_cliente5 = clientes_informacoes()
 
